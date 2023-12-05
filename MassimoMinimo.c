@@ -4,7 +4,7 @@
 
 int main()
 {
-    int dimensione, i = 0;
+    int dimensione, i = 1;
     double num, max, min;
 
     printf("Quanti numeri vuoi inserire?\n");
@@ -21,7 +21,7 @@ int main()
     min = num;
     max = num;
 
-    while (i < dimensione - 1)
+    while (i < dimensione)
     {
         scanf("%lf", &num);
         if (num > max)
