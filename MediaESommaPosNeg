@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <math.h> 
+
+int main() {
+    int n, num, somma = 0, sommaNeg = 0, cont = 0, contNeg = 0;
+    float media, mediaNeg;
+    printf("Quanti numeri vuoi inserire?");
+    scanf("%d", &n);
+    
+    while(n<=0){
+        printf("Non puoi inserire un numero negativo o nullo di numeri.\nReinserire");
+    }
+    
+    for(int i=0; i<n;i++){
+        printf("Inserisci il numero all'indice %d\n", i);
+        scanf("%d", &num);
+        if(num>0){
+            somma = somma + num;
+            cont++;
+        }
+        else if(num<0){
+            sommaNeg = sommaNeg + abs(num);
+            contNeg++;
+        }
+    }
+    media = (float) somma/cont;
+    mediaNeg = (float) sommaNeg/contNeg;
+    
+    printf("La somma dei numeri positivi e': %d\n", somma);
+    printf("La somma dei numeri negativi in valore assoluto e': %d\n", sommaNeg);
+    printf("Il numero di numeri positivi e': %d\n", cont);
+    printf("Il numero di numeri negativi e': %d\n", contNeg);
+    printf("La media dei numeri positivi e': %.2f\n", media);
+    printf("La media dei numeri negativi e': %.2f\n", mediaNeg);
+    return 0;
+}
