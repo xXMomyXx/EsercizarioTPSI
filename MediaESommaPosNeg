@@ -6,23 +6,27 @@ int main() {
     float media, mediaNeg;
     printf("Quanti numeri vuoi inserire?");
     scanf("%d", &n);
-    
+    //Controllo che il numero inserito sia superiore a 0
     while(n<=0){
         printf("Non puoi inserire un numero negativo o nullo di numeri.\nReinserire");
+        scanf("%d", &n);
     }
-    
+    //Faccio inserire all'utente numeri nella quantità da lui scelta
     for(int i=0; i<n;i++){
         printf("Inserisci il numero all'indice %d\n", i);
         scanf("%d", &num);
+    //Se il numero è positivo, viene sommato alla variabile somma, e la variabile cont tiene traccia di quanti numeri positivi sono apparsi
         if(num>0){
             somma = somma + num;
             cont++;
         }
+    //Se il numero è negativo, viene sommato alla variabile sommaNeg, e la variabile contNeg tiene traccia di quanti numeri negativi sono apparsi
         else if(num<0){
             sommaNeg = sommaNeg + abs(num);
             contNeg++;
         }
     }
+    //Calcolo la media dei numeri positivi e quella dei numeri negativi
     media = (float) somma/cont;
     mediaNeg = (float) sommaNeg/contNeg;
     
