@@ -4,23 +4,28 @@ int main() {
     int num, x = 1, somma = 0, contatore = 0;
     printf("Inserisci il numero di primi da stampare: ");
     scanf("%d", &num);
-
+    //Mi assicuro che il numero di primi da stampare inserito sia maggiore 0
     while (num <= 0) {
         printf("Il numero inserito non può essere negativo o nullo.\nReinserire: ");
         scanf("%d", &num);
     }
-
+    /*Controllo se l'x che si ha è primo, e se lo è, controllo se il contatore (che incrementa ad ogni numero primo trovato) è un
+    numero pari (per alternare), e se lo è, stampo x e lo aggiungo alla variabile somma, e successivamente riduco num fino a che non
+    raggiunga 0 (punto al quale si interromperà il ciclo), e così avro stampato la quantità di numeri primi alternati inserita
+    dall'utente */
     while (num > 0) {
         int primo = 1;
         x = x + 1;
         
         for (int i = 2; i < x; i++) {
+    //Controllo che il numero non sia divisibile se non per sè (il numero 1 viene saltato), e se lo è, la variabile booleana primo è impostata a falso
             if (x % i == 0) {
                 primo = 0;
                 i = x;
             }
         }
-
+    /*Se il numero è divisibile solo per sè stesso(e dunque è primo), controlla se il contatore è pari, e se lo è stampa il numero e lo
+    aggiunge alla variabile somma e decrementa num. Se il contatore è dispari, incrementa solo quello.*/
         if (primo) {
           if (contatore % 2 == 0) {
                printf("%d\n", x);
