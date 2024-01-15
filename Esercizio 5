@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int main() {
+    int offerteCompratore1 = 1, offerteCompratore2 = 1, contatore = 0, contatore1 = 0;
+    printf("Benvenuti all'asta\n");
+
+    while (offerteCompratore1 != 0 && offerteCompratore2 != 0) {
+        printf("Quanto offre il primo compratore? ");
+        scanf("%d", &offerteCompratore1);
+
+        if (offerteCompratore1 == 0) {
+            break;
+        }
+
+        contatore++;
+
+        getchar();
+
+        printf("Quanto offre il secondo compratore? ");
+        scanf("%d", &offerteCompratore2);
+
+        if (offerteCompratore2 == 0) {
+            break;
+        }
+
+        contatore1++;
+
+        getchar();
+    }
+
+    if (offerteCompratore1 > offerteCompratore2) {
+        printf("Ha vinto il primo compratore!\n");
+    } else if (offerteCompratore1 < offerteCompratore2) {
+        printf("Ha vinto il secondo compratore!\n");
+    } else {
+        printf("L'asta è finita in pareggio!\n");
+    }
+
+    printf("Offerte fatte dal primo compratore: %d\n", contatore);
+    printf("Offerte fatte dal secondo compratore: %d\n", contatore1);
+
+    return 0;
+}
