@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main() {
+    int anni = 0;
+    double popolazioneIniziale, popolazioneFinale;
+    
+    printf("Inserire la popolazione iniziale di alghe\n");
+    scanf("%lf", &popolazioneIniziale);
+    
+    printf("Inserire la popolazione da raggiungere (o superare) di alghe\n");
+    scanf("%lf", &popolazioneFinale);
+    
+    while (popolazioneIniziale < popolazioneFinale) {
+        popolazioneIniziale = popolazioneIniziale * 2; 
+        anni++;
+        popolazioneIniziale = popolazioneIniziale - (popolazioneIniziale/3); 
+    }
+    printf("Per raggiungere la popolazione di alghe è necessario attendere %d anni\n", anni);
+
+    return 0;
+}
