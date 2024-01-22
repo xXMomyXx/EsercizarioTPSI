@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    int n,num, max, min;
+    printf("Quanti numeri vuoi inserire?\n");
+    scanf("%d", &n);
+    printf("Inserire il numero all'indice 0\n");
+    scanf("%d", &num);
+    max = num;
+    min = num;
+    
+    for(int i = 1; i < n; i++){
+        printf("Inserire il numero all'indice %d\n", i);
+        scanf("%d", &num);
+        if(num>max){
+            max = num;
+        }
+        else if(num<min){
+            min = num;
+        }
+    }
+    printf("Il numero più grande e' %d\n", max);
+    printf("Il numero più piccolo e' %d", min);
+    return 0;
+}
