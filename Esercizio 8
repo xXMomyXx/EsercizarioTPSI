@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main() {
+	int pastine = 0, panini = 0, scelta, giorni = 0;
+    double soldi;
+    
+	printf("Quanti soldi ha Mario?\n");
+	scanf("%lf", &soldi);
+	while(soldi<=0){
+    	printf("Mario non può avere zero o meno soldi\n");
+    	scanf("%d", &soldi);
+	}
+    
+	while(soldi>=1.5){
+	printf("Cosa vuole comprare Mario?\nInserire 1 per pastina\nInserire 2 per panino\n");
+	scanf("%d", &scelta);
+	while(scelta!=1 && scelta!=2){
+    	printf("Non hai scelto nessuna delle opzioni disponibili, reinserire.\n");
+    	scanf("%d", &scelta);
+	}
+    	if(scelta == 1){
+        	soldi = soldi - 1;
+        	pastine++;
+        	giorni++;
+    	}
+    	if(scelta == 2)
+        	soldi = soldi - 1.5;
+        	panini++;
+        	giorni++;
+	}
+	printf("I soldi sono finiti!\n");
+	printf("Il numero di panini mangiati e': %d\n", panini);
+	printf("Il numero di pastine mangiate e': %d\n", pastine);
+	printf("Il numero di giorni passati e': %d", giorni);
+    
+	return 0;
+}
