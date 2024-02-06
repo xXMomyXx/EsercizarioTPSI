@@ -1,0 +1,69 @@
+#include <stdio.h>;
+
+int main()
+{
+    int giorno, mese, anno, scelta = 1, contatore, contatore1, giorno1, mese1, anno1, giorno2, mese2, anno2;
+    float prezzo, prezzo1 = 0, prezzo2 = 9999, prezzo3 = 0, somma = 0, media, media1;
+    do
+    {
+        printf("Inserisci l'anno dell'acquisto");
+        scanf("%d", &anno);
+        while (anno < 2014 || anno > 2024)
+        {
+            printf("Anno non valido! Reinserire");
+            scanf("%d", &anno);
+        }
+        printf("Inserisci il mese dell'acquisto");
+        scanf("%d", &mese);
+        while (mese < 1 || mese > 12)
+        {
+            printf("Non hai inserito un mese valido! Reinserire");
+            scanf("%d", &mese);
+        }
+        printf("Inserisci il giorno dell'acquisto");
+        scanf("%d", &giorno);
+        while (giorno < 1 || giorno > 30)
+        {
+            printf("Non hai inserito un giorno valido! Reinserire");
+            scanf("%d", &giorno);
+        }
+        printf("Inserire il prezzo dell'azione");
+        scanf("%f", &prezzo);
+        while (prezzo < 0)
+        {
+            printf("Non puoi avere un prezzo negativo o nullo! Reinserire");
+            scanf("%f", &prezzo);
+        }
+        if (prezzo>2.50 && prezzo<3.50){
+            prezzo3 = prezzo3 + prezzo;
+            contatore1++;
+        }
+        if (prezzo>prezzo1){
+            prezzo1 = prezzo;
+            giorno1 = giorno;
+            mese1 = mese;
+            anno1 = anno;
+        }
+        if (prezzo<prezzo2){
+            prezzo2 = prezzo;
+            giorno2 = giorno;
+            mese2 = mese;
+            anno2 = anno;
+        }
+        contatore++;
+        somma = somma + prezzo;
+        printf("Hai altre azioni da inserire? Inserisci 1 per rifare o qualsiasi altro valore per chiudere");
+        scanf("%d", &scelta);
+    } while (scelta == 1);
+    media = somma / prezzo;
+    media1 = prezzo3 / contatore1;
+    printf("La somma delle azioni e' %.2f\n", somma);
+    printf("La media e' %.2f\n", media);
+    printf("L'azione con il valore massimo e': %.2f ed e' stata acquistata il %d di %d del %d\n", prezzo1, giorno1, mese1, anno1);
+    printf("L'azione con il valore minimo e': %.2f ed e' stata acquistata il %d di %d del %d\n", prezzo2, giorno2, mese2, anno2);
+    if(contatore1>0){
+    printf("La media dei valori tra 2.50  e 3.50 euro e' %.2f\n", media1);
+    } else {
+        printf("Non ci sono azioni con prezzo tra 2.50 e 3.50");
+    }
+}
