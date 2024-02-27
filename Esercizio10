@@ -1,0 +1,90 @@
+#include <stdio.h>
+
+int main()
+{   
+    // n1 tiene conto dei numeri pari inseriti
+    // n2 tiene conto dei numeri dispari inseriti
+    // contatore tiene conto della somma di tutti i numeri
+    // contatore1 tiene conto della somma dei numeri pari inseriti
+    // contatore2 tiene conto della somma dei numeri dispari inseriti
+    // max e min tengono il valore del numero massimo e minimo inseriti che siano pari
+    // max1 e min1 tengono il valore del numero massimo e minimo inseriti che siano dispari
+    // media tiene la media di tutti i valori
+    // media1 tiene la media dei valori pari
+    // media2 tiene la media dei valori dispari
+    int n, n1 = 0, n2 = 0, contatore = 0, contatore1 = 0, contatore2 = 0, max = -99999, min = 99999, max1 = -99999, min1 = 99999;
+    double media, media1, media2;
+    printf("Quanti numeri vuoi inserire?\n");
+    scanf("%d", &n);
+    while(n<=0){
+        printf("Non puoi inserire un numero negativo o nullo di numeri! Reinserire\n");
+        scanf("%d", &n);
+    }
+    int array[n];
+    for (int i = 0; i < n; i++)
+    {
+        printf("Inserisci il %d° numero\n", i + 1);
+        scanf("%d", &array[i]);
+        while(array[i]<=0){
+            printf("Il numero deve essere maggiore di zero! Reinserire\n");
+            scanf("%d", &array[i]);
+        }
+        contatore += array[i];
+        if (array[i] % 2 == 0)
+        {
+            contatore1+=array[i];
+            n1++;
+            if (array[i] > max)
+            {
+                max = array[i];
+            }
+            if (array[i] < min)
+            {
+                min = array[i];
+            }
+        }
+        else if (array[i] % 2 != 0)
+        {
+            contatore2+=array[i];
+            n2++;
+            if (array[i] > max1)
+            {
+                max1 = array[i];
+            }
+            if (array[i] < min1)
+            {
+                min1 = array[i];
+            }
+        }
+    }
+    media = contatore / (double) n;
+    if (n1 > 0) {
+        media1 = contatore1 / (double) n1;
+    } else {
+        media1 = 0.0;
+    }
+    if (n2 > 0) {
+    media2 = contatore2 / (double) n2;
+    } else {
+    media2 = 0.0;
+    }
+    
+    printf("L'ammontare di numeri pari' e' %d\n", n1);
+    printf("L'ammontare di numeri dispari' e' %d\n", n2);
+    printf("La media dei numeri inseriti e' %.2lf\n", media);
+    printf("La media dei numeri pari inseriti e' %.2lf\n", media1);
+    printf("La media dei numeri dispari inseriti e' %.2lf\n", media2);
+    if(max>0){
+        printf("Il massimo dei numeri pari inseriti e' %d\n", max);
+        printf("Il minimo dei numeri pari inseriti e' %d\n", min);
+    } else{
+        printf("Non sono stati inseriti numeri pari\n");
+    }
+    if(max1>0){
+        printf("Il massimo dei numeri dispari inseriti e' %d\n", max1);
+        printf("Il minimo dei numeri dispari inseriti e' %d\n", min1);
+    } else{
+        printf("Non sono stati inseriti numeri dispari\n");
+    }
+    return 0;
+}
