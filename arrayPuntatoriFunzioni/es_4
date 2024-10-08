@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <string.h>
+
+void inverti (char str[]) {
+	int secondPointer = strlen(str) - 1, temp;
+	for(int i = 0; i < strlen(str) / 2; i++) {
+		temp = str[i];
+		str[i] = str[secondPointer];
+		str[secondPointer] = temp;
+		secondPointer--;
+	}
+}
+
+int main(int argc, char *argv[]) {
+	inverti (argv[1]);
+	printf("%s", argv[1]);
+	return 0;
+}
