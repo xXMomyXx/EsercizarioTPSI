@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+
+int palindroma(char str[]){
+    char secondStr[strlen(str)];
+    for(int i = 0; i < strlen(str); i++){
+        secondStr[i] = str[i];
+    }
+    int secondPointer = strlen(str) - 1, temp;
+	for(int i = 0; i < strlen(str) / 2; i++) {
+		temp = secondStr[i];
+		secondStr[i] = secondStr[secondPointer];
+		secondStr[secondPointer] = temp;
+		secondPointer--;
+	}
+	for(int i = 0;i < strlen(str); i++){
+	    if(secondStr[i] != str[i]){
+	        return -1;
+	    }
+	}
+	return 1;
+}
+
+int main(int argc, char *argv[]) {
+	if(palindroma (argv[1]) == 1){
+	    printf("%s è una stringa palindroma", argv[1]);
+	} else {
+	    printf("%s non è una stringa palindroma", argv[1]);
+	}
+}
