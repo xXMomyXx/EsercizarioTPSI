@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int isPari(int arr[], int n) {
+    int counter = 0;
+    for(int i = 0; i < n; i++){
+        counter += arr[i];
+    }
+    if(counter % 2 == 0){
+        return 1;
+    }
+    return -1;
+}
+
+int main(int argc, char *argv[]) {
+    int array[4];
+    array[0] = 2;
+    array[1] = 2;
+    array[2] = 4;
+    array[3] = 4;
+    if(isPari(array,4) == 1){
+        printf("L'array è pari");
+    } else {
+        printf("L'array è dispari");
+    }
+    return 0;
+}
